@@ -6,14 +6,13 @@
 int queue[MAX];
 int front = -1, rear = -1;
 
-// Function to insert (enqueue) an element
 void enqueue(int value) {
     if ((front == 0 && rear == MAX - 1) || (rear + 1) % MAX == front) {
         printf("Circular Queue is full!\n");
         return;
     }
 
-    if (front == -1)  // first element
+    if (front == -1)
         front = 0;
 
     rear = (rear + 1) % MAX;
@@ -21,7 +20,6 @@ void enqueue(int value) {
     printf("%d inserted into the circular queue.\n", value);
 }
 
-// Function to delete (dequeue) an element
 void dequeue() {
     if (front == -1) {
         printf("Circular Queue is empty!\n");
@@ -31,14 +29,12 @@ void dequeue() {
     printf("%d deleted from the circular queue.\n", queue[front]);
 
     if (front == rear) {
-        // Queue becomes empty after deletion
         front = rear = -1;
     } else {
         front = (front + 1) % MAX;
     }
 }
 
-// Function to display the circular queue
 void display() {
     if (front == -1) {
         printf("Circular Queue is empty!\n");
@@ -56,7 +52,6 @@ void display() {
     printf("\n");
 }
 
-// Main function with switch menu
 int main() {
     int choice, value;
 
@@ -89,3 +84,4 @@ int main() {
     }
     return 0;
 }
+
