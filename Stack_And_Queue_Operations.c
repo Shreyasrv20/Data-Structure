@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to create a new node
 struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
@@ -15,7 +13,6 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-/* ---------------- STACK OPERATIONS ---------------- */
 void push(struct Node** top, int value) {
     struct Node* newNode = createNode(value);
     newNode->next = *top;
@@ -44,7 +41,6 @@ void displayStack(struct Node* top) {
     printf("NULL\n");
 }
 
-/* ---------------- QUEUE OPERATIONS ---------------- */
 void enqueue(struct Node** front, struct Node** rear, int value) {
     struct Node* newNode = createNode(value);
     if (*rear == NULL) {
@@ -80,11 +76,10 @@ void displayQueue(struct Node* front) {
     printf("NULL\n");
 }
 
-/* ---------------- MAIN FUNCTION ---------------- */
 int main() {
-    struct Node* stackTop = NULL;   // Stack top
-    struct Node* queueFront = NULL; // Queue front
-    struct Node* queueRear = NULL;  // Queue rear
+    struct Node* stackTop = NULL;   
+    struct Node* queueFront = NULL; 
+    struct Node* queueRear = NULL; 
 
     int choice, value;
 
@@ -100,7 +95,7 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        // ✅ Using switch operator
+       
         switch (choice) {
             case 1:
                 printf("Enter value to push: ");
@@ -136,3 +131,4 @@ int main() {
 
     return 0;
 }
+
